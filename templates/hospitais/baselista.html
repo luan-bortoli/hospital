@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="/static/css/bootstrap.css">
+	<link rel="stylesheet" href="/static/css/estilo.css">
+	<title>Hospitalar</title>
+</head>
+<body>
+
+	<nav class="navbar navbar-expand-sm bg-dark navbar-light"><!--Iniciar Menu-->
+		<div class="container"><!--Classe Pai-->
+			<button class="navbar-toggler" data-toggle="collapse" data-target="#navbarSupportedContent"><!--Menu Colapsado + alvo-->
+				<span class="navbar-toggler-icon"></span><!--Colocar botão sanduíche-->
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent" ><!--Classe Filha-->
+				<ul class="navbar-nav ml-auto mr-auto"><!--Centralizar menu-->
+					<li><a href="#" class="nav-link">Home</a></li>
+					<li><a href="#" class="nav-link">Hospitais</a></li>
+					<li><a href="#" class="nav-link">Tipos de Hospitais</a></li>
+					<li class="dropdown"><!--Dropdow Classe Pai-->
+						<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Gerenciar Hospitais</a>
+						<ul class="dropdown-menu"><!--Classe Filha-->
+							<li>
+								<a href="#" class="dropdown-item">Inserir Hospitais</a>
+							</li>
+							<li class="dropdown-divider"></li><!--Criar Divisão-->
+							<li>
+								<a href="" class="dropdown-item">Editar Hospitais</a>
+							</li>
+							<li class="dropdown-divider"></li><!--Criar Divisão-->
+							<li>
+								<a href="" class="dropdown-item">Excluir Hospitais</a>
+							</li>
+						</ul>
+					</li>
+					<li class="mr-auto"><a href="#" class="nav-link">Registros</a></li>
+					<li class="mr-auto"><a href="#" class="nav-link">Login</a>
+					</li>
+				</ul>	
+			</div><!--Fim Collapse-->
+		</div><!--Fim Container-->
+	</nav><!--Finalizar Menu-->
+	
+	<main><!--Iniciar Principal-->
+
+		<section class="jumbotron"><!--Iniciar Título-->
+			<!--Estilo.CSS modificações-->
+			<form method="GET" class="input-group">
+				<input class="form-control" type="search" placeholder="Busque Aqui!" name="search">
+				<button class="btn btn-primary ml-1">Pesquisar</button>
+			</form>
+		</section><!--Finalizar -Título-->
+
+		<section>
+			{% block content %}
+
+
+			{% endblock content %}
+		</section>
+
+	</main>
+
+	<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="crossorigin="anonymous"></script>
+	<script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="/static/css/bootstrap.css">
+	<link rel="stylesheet" href="/static/css/estilo.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<title>Hospitalar</title>
+</head>
+<body>
+
+	<nav class="navbar navbar-expand-sm bg-dark navbar-light"><!--Iniciar Menu-->
+		<div class="container"><!--Classe Pai-->
+			<button class="navbar-toggler" data-toggle="collapse" data-target="#navbarSupportedContent"><!--Menu Colapsado + alvo-->
+				<span class="navbar-toggler-icon"></span><!--Colocar botão sanduíche-->
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent" ><!--Classe Filha-->
+				<ul class="navbar-nav ml-auto mr-auto"><!--Centralizar menu-->
+					<li>
+						<a href="{%url 'index' %}" class="nav-link">
+							<i class="material-icons align-middle">account_balance</i>
+						Home</a>
+					</li>
+					<li>
+						<a href="{%url 'hospitais' %}" class="nav-link">
+							<i class="material-icons align-middle">camera_enhance</i>
+						Hospitais</a>
+					</li>
+					<li>
+						<a href="{%url 'hospitais' %}" class="nav-link">
+							<i class="material-icons align-middle">chrome_reader_mode</i>
+						Tipos de Hospitais</a>
+					</li>
+					<li class="dropdown"><!--Dropdow Classe Pai-->
+						<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+							<i class="material-icons align-middle">dashboard</i>
+						Gerenciar Hospitais</a>
+						<ul class="dropdown-menu  bg-dark"><!--Classe Filha-->
+							<li>
+								<a href="{% url 'criar_hospital' %}" class="dropdown-item text-light">
+									<i class="material-icons align-middle text-success">touch_app</i>
+								Inserir Hospitais</a>
+							</li>
+							<li class="dropdown-divider"></li><!--Criar Divisão-->
+							<li>
+								<a href="{%url 'hospitais' %}" class="dropdown-item text-light">
+									<i class="material-icons align-middle text-warning">touch_app</i>
+								Editar Hospitais</a>
+							</li>
+							<li class="dropdown-divider"></li><!--Criar Divisão-->
+							<li>
+								<a href="{%url 'hospitais' %}" class="dropdown-item text-light">
+									<i class="material-icons align-middle text-danger">touch_app</i>
+								Excluir Hospitais</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+
+				<!--MENU USUÁRIO-->
+				<ul class="navbar-nav">
+					<li class="dropdown"><!--Dropdow Classe Pai-->
+						<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+							<i class="material-icons align-middle">perm_contact_calendar</i>
+						Usuários</a>
+						<ul class="dropdown-menu bg-dark"><!--Classe Filha-->
+							<li>
+								<a href="{%url 'criar_usuario' %}" class="dropdown-item text-light">
+									<i class="material-icons align-middle">perm_contact_calendar</i>
+								Criar Usuários</a>
+							</li>
+							<li class="dropdown-divider"></li><!--Criar Divisão-->
+							<li>
+								<a href="{% url 'login' %}" class="dropdown-item text-light">
+									<i class="material-icons align-middle text-success">perm_contact_calendar</i>
+								Logar</a>
+							</li>
+							<li class="dropdown-divider"></li><!--Criar Divisão-->
+							<li>
+								<a href="{% url 'logout' %}" class="dropdown-item text-light">
+									<i class="material-icons align-middle text-danger">perm_contact_calendar</i>
+								Sair</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+
+			</div><!--Fim Collapse-->
+		</div><!--Fim Container-->
+	</nav><!--Finalizar Menu-->
+
+	<main><!--Iniciar Principal-->
+
+		<section class="jumbotron"><!--Iniciar Título-->
+			<!--Estilo.CSS modificações-->
+			<form method="GET" class="input-group">
+				<input class="form-control" type="search" placeholder="Busque Aqui!" name="search">
+				<button class="btn btn-primary ml-1">Pesquisar</button>
+			</form>
+		</section><!--Finalizar -Título-->
+
+		<section>
+			<!--Formulário Presente no criar_hospitais.html-->
+			{% block content %}
+
+
+			{% endblock content %}
+
+		</section>
+
+	</main>
+
+	<footer class="mt-4 alert-primary fixed-bottom">
+		<div class="container d-flex justify-content-between">
+			<span class="copy mt-3">
+				&copy Copyright 2020
+			</span>
+			<ul class="navbar icones">
+				<li><a href="https://github.com/" class="text-hide">GitHub</a></li>
+				<li><a href="https://www.google.com/" class="text-hide">Google Plus</a></li>
+				<li><a href="https://www.linkedin.com/" class="text-hide">Linkedin</a></li>
+				<li><a href="https://www.facebook.com/" class="text-hide">Facebook</a></li>
+			</ul>
+		</div>
+	</footer>
+
+	<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="crossorigin="anonymous"></script>
+	<script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+
+</body>
+</html>

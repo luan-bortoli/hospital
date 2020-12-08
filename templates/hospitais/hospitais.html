@@ -1,0 +1,39 @@
+ {% extends 'hospitais/base.html' %}
+
+{% block content %}
+
+<div class="container">
+	<table class="table-responsive-lg table-responsive-sm table-responsive-md pb-5 mb-5">
+		<thead>
+			<tr class="border">
+				<th class="border">Nome Hospital</th>
+				<th class="border">Foto</th>
+				<th class="border">Descrição</th>
+				<th class="border">Tipo Hospital</th>
+				<th class="border">Conceito Hospital</th>
+				
+				{% if user.is_authenticated %}
+				<th class="border">Editar</th>
+				<th class="border">Excluir</th>
+				{%endif%}
+			</tr>
+		</thead>
+		<tbody >
+			{% for hospital in hospitais %}
+			<tr class="border">
+				<td class="border">{{hospital.nome_hospital}}</td>
+				<td class="border"><img src="{{hospital.foto_url}}" class="img-fluid img-thumbnail"></td>
+				<td class="border">{{hospital.desc_hospital}}</td>
+				<td class="border">{{hospital.tipo_hospital}}</td>
+				<td class="border">{{hospital.conceito_hospital}}</td>
+				{% if user.is_authenticated %}
+				<td class="border"><a href="{% url 'editar' hospital.id %}" class="btn btn-warning">Editar</a></td>
+				<td class="border"><a href="{% url 'deletar' hospital.id %}" class="btn btn-danger">Excluir</a></td>
+				{%endif%}
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+</div>
+
+{% endblock content %}
